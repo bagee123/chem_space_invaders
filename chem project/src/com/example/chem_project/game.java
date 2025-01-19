@@ -98,9 +98,6 @@ public class game extends Application {
         }else if(Objects.equals(oppSpeedSetting, "fast")) {
             oppSpeed = 9;
         }
-        //System.out.println(Objects.requireNonNull(getClass().getResource("database1.txt")).toURI().toString());
-        //File file = new File("C:\\Users\\z_may\\IdeaProjects\\Chem project\\src\\main\\resources\\com\\example\\chem_project\\database1.txt");
-        //System.out.println(file.exists());
         player.setTranslateY(805);
         movingRight = true;
         milliSecondsElapsed = 0;
@@ -373,7 +370,7 @@ public class game extends Application {
 
                            /*if (setting == 1){
                                System.out.println(timerLabel.getText());
-                               appendToLogFile(timerLabel.getText(),"C:\\Users\\z_may\\IdeaProjects\\Chem project\\src\\main\\resources\\com\\example\\chem_project\\leftQuarter.txt");
+                               appendToLogFile(timerLabel.getText(),FILEPATH);
                                //dataList.add(timerLabel.getText());
                            } else if (setting == 2) {
                                System.out.println(timerLabel.getText());
