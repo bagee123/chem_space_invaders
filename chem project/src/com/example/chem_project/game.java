@@ -133,20 +133,14 @@ public class game extends Application {
         RadioButton quarterRadio = new RadioButton("Left Quarter Screen");
         RadioButton halfRadio = new RadioButton("Left Half Screen");
         RadioButton fullRadio = new RadioButton("Full Screen");
+
         RadioButton playerSlow = new RadioButton("Player Slow");
         RadioButton playerMid = new RadioButton("Player Mid");
         RadioButton playerFast = new RadioButton("Player Fast");
+
         RadioButton oppSlow = new RadioButton("Opp Slow");
         RadioButton oppMid = new RadioButton("Opp Mid");
         RadioButton oppFast = new RadioButton("Opp Fast");
-
-
-
-
-
-
-
-
 
 
         quarterRadio.setToggleGroup(toggleGroup);
@@ -154,12 +148,15 @@ public class game extends Application {
         fullRadio.setToggleGroup(toggleGroup);
         rightQuarterRadio.setToggleGroup(toggleGroup);
         rightHalfRadio.setToggleGroup(toggleGroup);
+
         playerSlow.setToggleGroup(playerSpeedToggle);
         playerMid.setToggleGroup(playerSpeedToggle);
         playerFast.setToggleGroup(playerSpeedToggle);
+
         oppSlow.setToggleGroup(oppSpeedToggle);
         oppMid.setToggleGroup(oppSpeedToggle);
         oppFast.setToggleGroup(oppSpeedToggle);
+
         quarterRadio.setPadding(new Insets(0,0,0,17));
         Button startBtn = new Button("Start Game");
 
@@ -380,16 +377,16 @@ public class game extends Application {
                                //dataList.add(timerLabel.getText());
                            } else if (setting == 2) {
                                System.out.println(timerLabel.getText());
-                               appendToLogFile(timerLabel.getText(),"C:\\Users\\z_may\\IdeaProjects\\Chem project\\src\\main\\resources\\com\\example\\chem_project\\leftHalf.txt");
+                               appendToLogFile(timerLabel.getText(),FILEPATH);
                            } else if (setting == 3) {
                                System.out.println(timerLabel.getText());
-                               appendToLogFile(timerLabel.getText(),"C:\\Users\\z_may\\IdeaProjects\\Chem project\\src\\main\\resources\\com\\example\\chem_project\\fullScreen.txt");
+                               appendToLogFile(timerLabel.getText(),FILEPATH);
                            }else if (setting == 4) {
                                System.out.println(timerLabel.getText());
-                               appendToLogFile(timerLabel.getText(),"C:\\Users\\z_may\\IdeaProjects\\Chem project\\src\\main\\resources\\com\\example\\chem_project\\rightQuarter.txt");
+                               appendToLogFile(timerLabel.getText(),FILEPATH);
                            }else if (setting == 5) {
                                System.out.println(timerLabel.getText());
-                               appendToLogFile(timerLabel.getText(),"C:\\Users\\z_may\\IdeaProjects\\Chem project\\src\\main\\resources\\com\\example\\chem_project\\rightHalf.txt");
+                               appendToLogFile(timerLabel.getText(), FILEPATH);
                            }
 
 
@@ -399,35 +396,35 @@ public class game extends Application {
                             if(Objects.equals(playerSpeedSetting, "slow")){
                                 if(Objects.equals(oppSpeedSetting, "slow")){
                                     System.out.println(timerLabel.getText());
-                                    //appendToLogFile(timerLabel.getText(), FILENAME GUPIL );
+                                    //appendToLogFile(timerLabel.getText(), FILEPATH);
                                 }else if(Objects.equals(oppSpeedSetting, "mid")){
                                     System.out.println(timerLabel.getText());
-                                    // appendToLogFile(timerLabel.getText(), FILENAME GUPIL );
+                                    // appendToLogFile(timerLabel.getText(), FILEPATH );
                                 }else if(Objects.equals(oppSpeedSetting, "fast")){
                                     System.out.println(timerLabel.getText());
-                                    // appendToLogFile(timerLabel.getText(), FILENAME GUPIL );
+                                    // appendToLogFile(timerLabel.getText(), FILEPATH );
                                 }
                             }else if(Objects.equals(playerSpeedSetting, "mid")){
                                 if(Objects.equals(oppSpeedSetting, "slow")){
                                     System.out.println(timerLabel.getText());
-                                    // appendToLogFile(timerLabel.getText(), FILENAME GUPIL );
+                                    // appendToLogFile(timerLabel.getText(), FILEPATH );
                                 }else if(Objects.equals(oppSpeedSetting, "mid")){
                                     System.out.println(timerLabel.getText());
-                                    // appendToLogFile(timerLabel.getText(), FILENAME GUPIL );
+                                    // appendToLogFile(timerLabel.getText(), FILEPATH );
                                 }else if(Objects.equals(oppSpeedSetting, "fast")){
                                     System.out.println(timerLabel.getText());
-                                    //appendToLogFile(timerLabel.getText(), FILENAME GUPIL );
+                                    //appendToLogFile(timerLabel.getText(), FILEPATH );
                                 }
                             }else if(Objects.equals(playerSpeedSetting, "fast")){
                                 if(Objects.equals(oppSpeedSetting, "slow")){
                                     System.out.println(timerLabel.getText());
-                                    // appendToLogFile(timerLabel.getText(), FILENAME GUPIL );
+                                    // appendToLogFile(timerLabel.getText(), FILEPATH );
                                 }else if(Objects.equals(oppSpeedSetting, "mid")){
                                     System.out.println(timerLabel.getText());
-                                    // appendToLogFile(timerLabel.getText(), FILENAME GUPIL );
+                                    // appendToLogFile(timerLabel.getText(), FILEPATH );
                                 }else if(Objects.equals(oppSpeedSetting, "fast")){
                                     System.out.println(timerLabel.getText());
-                                    // appendToLogFile(timerLabel.getText(), FILENAME GUPIL );
+                                    // appendToLogFile(timerLabel.getText(), FILEPATH );
                                 }
                             }
                             restartGame();
