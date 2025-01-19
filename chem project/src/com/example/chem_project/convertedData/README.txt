@@ -1,0 +1,1 @@
+Converted data refers to the data being converted from time int the format of min:sec:ms to decimal form of sec.ms.
