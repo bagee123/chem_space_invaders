@@ -43,8 +43,8 @@ public class game extends Application {
     private List<String> dataList;
 
 
-    int playerSpeed = 0;
-    int oppSpeed = 0;
+    double playerSpeed = 0;
+    double oppSpeed = 0;
 
 
     String playerSpeedSetting = "";
@@ -54,8 +54,15 @@ public class game extends Application {
 
 
     int setting = 0;
-    final long delay = 500_000_000;
+    final long delay = 50_000_000; //50 milliseconds
     private long lastTime = 0;
+    int scalingFactor = 1000;
+    double playerSpeedSlow = .1;
+    double playerSpeedMid = .2;
+    double playerSpeedFast = .3;
+    double oppSpeedSlow = playerSpeedSlow * scalingFactor;
+    double oppSpeedMid = playerSpeedSlow * scalingFactor;
+    double oppSpeedFast = playerSpeedSlow * scalingFactor;
 
 
     private AnimationTimer timer;
@@ -83,20 +90,20 @@ public class game extends Application {
 
 
         if (Objects.equals(playerSpeedSetting, "slow")) {
-            playerSpeed = 3;
+            playerSpeed = playerSpeedSlow;
         }else if (Objects.equals(playerSpeedSetting, "mid")){
-            playerSpeed = 6;
+            playerSpeed = playerSpeedMid;
         }else if (Objects.equals(playerSpeedSetting, "fast")){
-            playerSpeed = 9;
+            playerSpeed = playerSpeedFast;
         }
 
 
         if(Objects.equals(oppSpeedSetting, "slow")){
-            oppSpeed = 3;
+            oppSpeed = oppSpeedSlow;
         }else if(Objects.equals(oppSpeedSetting, "mid")){
-            oppSpeed = 6;
+            oppSpeed = oppSpeedMid;
         }else if(Objects.equals(oppSpeedSetting, "fast")) {
-            oppSpeed = 9;
+            oppSpeed = oppSpeedFast;
         }
         player.setTranslateY(805);
         movingRight = true;
@@ -181,25 +188,25 @@ public class game extends Application {
 
             if(playerSlow.isSelected()){
                 playerSpeedSetting = "slow";
-                playerSpeed = 3;
+                playerSpeed = playerSpeedSlow;
             }else if(playerMid.isSelected()){
                 playerSpeedSetting = "mid";
-                playerSpeed = 6;
+                playerSpeed = playerSpeedMid;
             }else if(playerFast.isSelected()){
                 playerSpeedSetting = "fast";
-                playerSpeed = 9;
+                playerSpeed = playerSpeedFast;
             }
 
 
             if(oppSlow.isSelected()){
                 oppSpeedSetting = "slow";
-                oppSpeed = 3;
+                oppSpeed = oppSpeedSlow;
             }else if(oppMid.isSelected()){
                 oppSpeedSetting = "mid";
-                oppSpeed = 6;
+                oppSpeed = oppSpeedMid;
             }else if(oppFast.isSelected()){
                 oppSpeedSetting = "fast";
-                oppSpeed = 9;
+                oppSpeed = oppSpeedFast;
             }
 
 
@@ -343,7 +350,7 @@ public class game extends Application {
 
 
                 // Handle falling enemies
-                if (shouldCreateEnemy && enemies.size() < 20) {
+                if (shouldCreateEnemy && enemies.size() < 5) {
                     // Adjust the range of random values for x-coordinate
                     Rectangle enemy = new Rectangle(new Random().nextInt(1001), 0, 20, 20);
                     enemy.setFill(Color.RED);
@@ -358,7 +365,7 @@ public class game extends Application {
                     Iterator<Rectangle> iterator = enemies.iterator();
                     while (iterator.hasNext()) {
                         Rectangle enemy = iterator.next();
-                        int speed = (int) enemy.getUserData(); // Get the speed for this circle
+                        double speed = (double) enemy.getUserData(); // Get the speed for this circle
                         enemy.setTranslateY(enemy.getTranslateY() + speed);
 
 
@@ -391,38 +398,38 @@ public class game extends Application {
 
 
                             if(Objects.equals(playerSpeedSetting, "slow")){
-                                if(Objects.equals(oppSpeedSetting, "slow")){
+                                //if(Objects.equals(oppSpeedSetting, "slow")){
                                     System.out.println(timerLabel.getText());
-                                    //appendToLogFile(timerLabel.getText(), FILEPATH);
-                                }else if(Objects.equals(oppSpeedSetting, "mid")){
-                                    System.out.println(timerLabel.getText());
+                                    appendToLogFile(timerLabel.getText(), "C:\\chem_space_invaders\\chem project\\src\\com\\example\\chem_project\\rawData\\pSlow1000x.txt");
+                                //}else if(Objects.equals(oppSpeedSetting, "mid")){
+                                    //System.out.println(timerLabel.getText());
                                     // appendToLogFile(timerLabel.getText(), FILEPATH );
-                                }else if(Objects.equals(oppSpeedSetting, "fast")){
-                                    System.out.println(timerLabel.getText());
+                                //}else if(Objects.equals(oppSpeedSetting, "fast")){
+                                    //System.out.println(timerLabel.getText());
                                     // appendToLogFile(timerLabel.getText(), FILEPATH );
-                                }
+
                             }else if(Objects.equals(playerSpeedSetting, "mid")){
-                                if(Objects.equals(oppSpeedSetting, "slow")){
+                                //if(Objects.equals(oppSpeedSetting, "slow")){
                                     System.out.println(timerLabel.getText());
+                                     appendToLogFile(timerLabel.getText(), "C:\\chem_space_invaders\\chem project\\src\\com\\example\\chem_project\\rawData\\pMid1000x.txt" );
+                                //}else if(Objects.equals(oppSpeedSetting, "mid")){
+                                    //System.out.println(timerLabel.getText());
                                     // appendToLogFile(timerLabel.getText(), FILEPATH );
-                                }else if(Objects.equals(oppSpeedSetting, "mid")){
-                                    System.out.println(timerLabel.getText());
-                                    // appendToLogFile(timerLabel.getText(), FILEPATH );
-                                }else if(Objects.equals(oppSpeedSetting, "fast")){
-                                    System.out.println(timerLabel.getText());
+                                //}else if(Objects.equals(oppSpeedSetting, "fast")){
+                                    //System.out.println(timerLabel.getText());
                                     //appendToLogFile(timerLabel.getText(), FILEPATH );
-                                }
+                                //}
                             }else if(Objects.equals(playerSpeedSetting, "fast")){
-                                if(Objects.equals(oppSpeedSetting, "slow")){
+                                //if(Objects.equals(oppSpeedSetting, "slow")){
                                     System.out.println(timerLabel.getText());
+                                     appendToLogFile(timerLabel.getText(),"C:\\chem_space_invaders\\chem project\\src\\com\\example\\chem_project\\rawData\\pFast1000x.txt" );
+                                //}else if(Objects.equals(oppSpeedSetting, "mid")){
+                                    //System.out.println(timerLabel.getText());
                                     // appendToLogFile(timerLabel.getText(), FILEPATH );
-                                }else if(Objects.equals(oppSpeedSetting, "mid")){
-                                    System.out.println(timerLabel.getText());
+                                //}else if(Objects.equals(oppSpeedSetting, "fast")){
+                                    //System.out.println(timerLabel.getText());
                                     // appendToLogFile(timerLabel.getText(), FILEPATH );
-                                }else if(Objects.equals(oppSpeedSetting, "fast")){
-                                    System.out.println(timerLabel.getText());
-                                    // appendToLogFile(timerLabel.getText(), FILEPATH );
-                                }
+                                //}
                             }
                             restartGame();
                         }
@@ -454,20 +461,20 @@ public class game extends Application {
 
 
         if (Objects.equals(playerSpeedSetting, "slow")) {
-            playerSpeed = 3;
+            playerSpeed = playerSpeedSlow;
         }else if (Objects.equals(playerSpeedSetting, "mid")){
-            playerSpeed = 6;
+            playerSpeed = playerSpeedMid;
         }else if (Objects.equals(playerSpeedSetting, "fast")){
-            playerSpeed = 9;
+            playerSpeed = playerSpeedFast;
         }
 
 
         if(Objects.equals(oppSpeedSetting, "slow")){
-            oppSpeed = 3;
+            oppSpeed = oppSpeedSlow;
         }else if(Objects.equals(oppSpeedSetting, "mid")){
-            oppSpeed = 6;
+            oppSpeed = oppSpeedMid;
         }else if(Objects.equals(oppSpeedSetting, "fast")) {
-            oppSpeed = 9;
+            oppSpeed = oppSpeedFast;
         }
         player.setTranslateY(805);
         timerLabel.setTranslateX(430);

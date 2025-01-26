@@ -5,8 +5,8 @@ import java.io.*;
 public class timeConversion {
     public static void main(String[] args) {
         int conversionNo = 0;
-        String filename = "C:\\intellij\\chem project\\src\\com\\example\\chem_project\\p_mid o_fast.txt"; // Replace with your file path
-        String outputFilename = "C:\\intellij\\chem project\\src\\com\\example\\chem_project\\convertedData\\pmof_conv.txt"; // Output file for updated values
+        String filename = "C:\\chem_space_invaders\\chem project\\src\\com\\example\\chem_project\\rawData\\pFast1000x.txt"; // Replace with your file path
+        String outputFilename = "C:\\chem_space_invaders\\chem project\\src\\com\\example\\chem_project\\convertedData\\pFast1000x_conv.txt"; // Output file for updated values
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filename));
              BufferedWriter writer = new BufferedWriter(new FileWriter(outputFilename))) {
